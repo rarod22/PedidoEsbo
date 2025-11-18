@@ -169,7 +169,7 @@ let dataPreviousOrder;
 
 const version = "3.5";
 
-const configDataURL = "./res/configData.json";
+const configDataURL = "configData.json";
 const teclas = ["ArrowDown", "ArrowUp", "PageDown", "PageUp"];
 
 const TABLE_REDUCTION_OFFER_PARAMS = "tableReductionParameters-offerParameters";
