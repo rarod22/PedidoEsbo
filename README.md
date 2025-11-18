@@ -2,7 +2,7 @@
 
 Aplicación para seleccionar, unir y configurar la información para la generación del pedido al almacén externo.
 
-Link de acceso a la aplicación [Pedidos Externo](https://rarod22.github.io/IK-Pedido_Externo/index.html)
+Link de acceso a la aplicación [Pedidos Externo](https://rarod22.github.io/index.html)
 
 ## Version 3.5
 
