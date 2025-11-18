@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XDJNWKNDMX"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XDJNWKNDMX');
+</script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedidos Almacen Externo</title>
+    <link rel="shortcut icon" href="./lib/favicon.ico" type="image/x-icon">
+    <meta name="autor" content="https://github.com/perseo1326" />
+    <link rel="stylesheet" type="text/css" href="./lib/baseStyles.css">
+    <link rel="stylesheet" type="text/css" href="./res/styles.css">
+</head>
+<body>
+    
+    <div class="global-grid-container">
+
+        <!-- navigation bar / title bar -->
+        <nav class="container-row nav-bar ">
+            <div class="logo">
+                <img src="./lib/company-logo.svg" alt="IKEA Logo" srcset="">
+            </div>
+            <div class="page-title">
+                <h1>Pedido a ESBO v<span id="version"></span></h1>
+            </div>
+
+        </nav>
+
+        <!-- Loading panel definition -->
+        <div id="auxiliar-panel-loading" class="auxiliar-panel container-flex no-visible">
+            <div class="" id="">
+                <div class="loader"></div>
+            </div>
+        </div>
+
+
+        <!-- panel for configuration params -->
+        <div id="auxiliar-panel-configuration" class="auxiliar-panel container-flex no-visible">
+            <div class="config-panel" id="">
+
+                <div class="config-title">
+                    <h3>Configuración de Parámetros</h3>
+                </div>
+                <div class="container-row config-nav-buttons">
+                    <ul>
+                        <li><button id="config-reduce-data-panel-B" class="custom-button custom-button-green">Reducción de datos</button></li>
+                        <li><button id="config-priorities-panel-B" class="custom-button">Prioridades</button></li>
+                    </ul>
+                </div>
+
+                <!-- config cards -->
+                <div id="config-panel-cards" class="container-row config-panel-cards " >
+
+                    <!-- tableReductionParameters -->
+                    <div id="config-reduce-data-panel" class="container-column config-card">
+
+                        <!-- Articulos en OFERTA -->
+                        <div class="card-params">
+                            <fieldset id="tableReductionParameters-offerParameters" class="container-column">
+                                <legend>Art. en Ofertas</legend>
+                                <div class="container-row param-item">
+                                    <label for="stockWeeks-param-offer">Semanas Stock</label>
+                                    <input type="number" name="stockWeeks-param-offer" id="stockWeeks-param-offer">
+                                </div>
+                                <div class="container-row param-item">
+                                    <label for="eoqQty-param-offer">EOQ %</label>
+                                    <input type="number" name="eoqQty-param-offer" id="eoqQty-param-offer">
+                                </div>
+                            </fieldset>
+                        </div>
+
+                        <!-- Articulos Precio NORMAL -->
+                        <div class="card-params">
+                            <fieldset id="tableReductionParameters-normalParameters" class="container-column">
+                                <legend>Art. Precio Normal</legend>
+                                <div class="container-row param-item">
+                                    <label for="stockWeeks-param-normal">Semanas Stock</label>
+                                    <input type="number" name="stockWeeks-param-normal" id="stockWeeks-param-normal">
+                                </div>
+                                <div class="container-row param-item">
+                                    <label for="eoqQty-param-normal">EOQ %</label>
+                                    <input type="number" name="eoqQty-param-normal" id="eoqQty-param-normal">
+                                </div>
+                                <div class="container-row param-item">
+                                    <label for="availableShopStock-param-normal">Stock Disponible Tienda</label>
+                                    <input type="number" name="availableShopStock-param-normal" id="availableShopStock-param-normal">
+                                </div>
+                                
+                            </fieldset>
+                        </div>
+
+                        <!-- text to ignore when reduce the data table -->
+                        <div class="container-column param-item">
+                            <label class="text" for="avoidIgnoreArticlesWithText-param">Texto a omitir en Observaciones Esp.</label>
+                            <input id="avoidIgnoreArticlesWithText-param" type="text" name="avoidIgnoreArticlesWithText-param" class="text">
+                        </div>    
+                    </div>
+
+                    <!-- priorityParams" -->
+                    <div id="config-priorities-panel" class="container-column config-card no-visible" >
+                        <div class="card-params">
+
+                            <fieldset id="priorityParams" class="container-column">
+                                <legend>Parametros de Prioridad</legend>
+
+                                <!-- Prioridad No.  1 (blocked)-->
+                                <div class="container-row param-item">
+                                    <label class="" for="trucks-param">1. Camiones</label>
+                                    <!-- <input class="disabled" type="text" name="trucks-param" id="trucks-param" disabled> -->
+                                </div>    
+                                
+                                <!-- Prioridad No.  2-->
+                                <div class="container-row param-item">
+                                    <label for="stockWeeks-param">2. Semanas de Stock &lt=</label>
+                                    <input type="text" name="stockWeeks-param" id="stockWeeks-param">
+                                </div>    
+                                
+                                <!-- Prioridad No.  3-->
+                                <div class="container-row param-item">
+                                    <label for="marketEoqQty-param">3. EOQ Qty(%) &lt=</label>
+                                    <input type="text" name="marketEoqQty-param" id="marketEoqQty-param">
+                                </div>    
+                                
+                                <!-- Prioridad No.  4-->
+                                <div class="container-row param-item">
+                                    <label for="shopStockPallets-param">4. Pallets SGF &lt=</label>
+                                    <input type="text" name="shopStockPallets-param" id="shopStockPallets-param">
+                                </div>    
+                                
+                                <!-- Prioridad No.  5-->
+                                <div class="container-row param-item">
+                                    <label for="selfWarehouseEoqQty-param">5. EOQ Qty(%) Auto, Full &lt=</label>
+                                    <input type="text" name="selfWarehouseEoqQty-param" id="selfWarehouseEoqQty-param">
+                                </div>    
+                                
+                                <!-- Prioridad No.  6-->
+                                <div class="container-row param-item">
+                                    <label for="selfWarehouseSgfPallets-param">6. Pallets SGF Auto, Full &lt=</label>
+                                    <input type="text" name="selfWarehouseSgfPallets-param" id="selfWarehouseSgfPallets-param">
+                                </div>    
+                                
+                                <!-- Prioridad No.  7-->
+                                <div class="container-row param-item">
+                                    <label for="totalUnits-param">7. Stock Tienda &lt=</label>
+                                    <input type="text" name="totalUnits-param" id="totalUnits-param">
+                                </div>    
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-row config-confirm-buttons">
+                    <button id="config-params-ok" class="width-30 custom-button">Aceptar</button>
+                    <button id="config-params-cancel" class="width-30 custom-button">Cancelar</button>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <!-- App content -->
+        <div id="" class="">
+            
+            <!-- buttons panel -->
+            <div id="reports-panel" class="container-column">
+
+                <!-- SG010 REPORT -->
+                <section id="SG010-section" class="">
+                    <div class="section-div ">
+                        <div class="container-row section-div-button">
+                            <label for="SG010" class="custom-button-report custom-button" tabindex="1">SG010</label>
+                            <input id="SG010" class="no-visible" type="file">
+                        </div>
+
+                        <div class="container-row container-svg-update">
+                            <a id="SG010-icon" class="svg-icon" href="" target="_blank">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"></svg>
+                            </a>
+                        </div>
+
+                        <div class="container-row">
+                            <p id="SG010-file-name" class=""></p>
+                        </div>
+                    </div>
+                </section>
+                
+
+                <!-- SDS0001 REPORT -->
+                <section id="SDS0001-section" class="">
+                    <div class="section-div ">
+                        <div class="container-row section-div-button">
+                            <label for="SDS0001" class="custom-button-report custom-button" tabindex="1">SDS0001</label>
+                            <input id="SDS0001" class="no-visible" type="file">
+                        </div>
+
+                        <div class="container-row container-svg-update">
+                            <a id="SDS0001-icon" class="svg-icon" href="" target="_blank">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"></svg>
+                            </a>
+                        </div>
+
+                        <div class="container-row">
+                            <p id="SDS0001-file-name" class=""></p>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- SDS0002 REPORT -->
+                <section id="SDS0002-section" class="">
+                    <div class="section-div ">
+                        <div class="container-row section-div-button">
+                            <label for="SDS0002" class="custom-button-report custom-button" tabindex="1">SDS0002</label>
+                            <input id="SDS0002" class="no-visible" type="file">
+                        </div>
+
+                        <div class="container-row container-svg-update">
+                            <a id="SDS0002-icon" class="svg-icon" href="" target="_blank">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"></svg>
+                            </a>
+                        </div>
+
+                        <div class="container-row">
+                            <p id="SDS0002-file-name" class=""></p>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- SA021 REPORT -->
+                <section id="SA021-section" class="">
+                    <div class="section-div ">
+                        <div class="container-row section-div-button">
+                            <label for="SA021" class="custom-button-report custom-button" tabindex="1">SA021</label>
+                            <input id="SA021" class="no-visible" type="file">
+                        </div>
+
+                        <div class="container-row container-svg-update">
+                            <a id="SA021-icon" class="svg-icon" href="" target="_blank">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"></svg>
+                            </a>
+                        </div>
+
+                        <div class="container-row">
+                            <p id="SA021-file-name" class=""></p>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- AL010 REPORT -->
+                <section id="AL010-section" class="">
+                    <div class="section-div ">
+                        <div class="container-row section-div-button">
+                            <label for="AL010" class="custom-button-report custom-button" tabindex="1">AL010</label>
+                            <input id="AL010" class="no-visible" type="file">
+                        </div>
+
+                        <div class="container-row container-svg-update">
+                            <a id="AL010-icon" class="svg-icon" href="" target="_blank">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"></svg>
+                            </a>
+                        </div>
+
+                        <div class="container-row">
+                            <p id="AL010-file-name" class=""></p>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- Obs-Especiales REPORT -->
+                <section id="Obs-Especiales-section" class="">
+                    <div class="section-div ">
+                        <div class="container-row section-div-button">
+                            <label for="Obs-Especiales" class="custom-button-report custom-button" tabindex="1">Obs Especiales</label>
+                            <input id="Obs-Especiales" class="no-visible" type="file">
+                        </div>
+
+                        <div class="container-row container-svg-update">
+                            <a id="Obs-Especiales-icon" class="svg-icon" href="" target="_blank">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"></svg>
+                            </a>
+                        </div>
+
+                        <div class="container-row">
+                            <p id="Obs-Especiales-file-name" class=""></p>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- Packing-List REPORT -->
+                <section id="Packing-List-section" class="">
+                    <div class="section-div ">
+                        <div class="container-row section-div-button">
+                            <label for="Packing-List" class="custom-button-report custom-button" tabindex="1">Packing List</label>
+                            <input id="Packing-List" class="no-visible" type="file">
+                        </div>
+
+                        <div class="container-row container-svg-update">
+                            <a id="Packing-List-icon" class="svg-icon" href="" target="_blank">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"></svg>
+                            </a>
+                        </div>
+
+                        <div class="container-row">
+                            <p id="Packing-List-file-name" class=""></p>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- PREVIOUS ORDER REPORT -->
+                <section id="Pedido-ESBO-section" class="">
+                    <div class="section-div ">
+                        <div class="container-row section-div-button">
+                            <label for="Pedido-ESBO" class="custom-button-report custom-button-green custom-button" tabindex="1">Pedido Anterior ESBO</label>
+                            <input id="Pedido-ESBO" class="no-visible" type="file">
+                        </div>
+
+                        <div class="container-row container-svg-update">
+                            <a id="Pedido-ESBO-icon" class="svg-icon" href="" target="_blank">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"></svg>
+                            </a>
+                        </div>
+
+                        <div class="container-row">
+                            <p id="Pedido-ESBO-file-name" class=""></p>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- button "continue" -->
+                <div class="container-row div-reports-panel-go">
+                    <button id="process-reports-go" class="custom-button">Siguiente</button>
+                </div>
+            </div>
+
+            <!-- table results panel -->
+            <div id="table-results-panel" class="app-table-results no-visible">
+                
+                <div class="div-tools-div">
+
+                    <!-- Tools Button -->
+                    <div class="tools-icon">
+
+                        <div class="container-column tools-buttons">
+                        <!-- Configuration button -->
+                            <div class="container-row">
+                                <button id="configuration-button" class="div-copy-div-button custom-button">Configuración</button>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                    <path d="M352 320c88.4 0 160-71.6 160-160c0-15.3-2.2-30.1-6.2-44.2c-3.1-10.8-16.4-13.2-24.3-5.3l-76.8 76.8c-3 3-7.1 4.7-11.3 4.7L336 192c-8.8 0-16-7.2-16-16l0-57.4c0-4.2 1.7-8.3 4.7-11.3l76.8-76.8c7.9-7.9 5.4-21.2-5.3-24.3C382.1 2.2 367.3 0 352 0C263.6 0 192 71.6 192 160c0 19.1 3.4 37.5 9.5 54.5L19.9 396.1C7.2 408.8 0 426.1 0 444.1C0 481.6 30.4 512 67.9 512c18 0 35.3-7.2 48-19.9L297.5 310.5c17 6.2 35.4 9.5 54.5 9.5zM80 408a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/>
+                                </svg> 
+                            </div>
+
+                            <!-- reduce row in data table -->
+                            <div class="container-row">
+                                <button id="reduce-data-table" class="div-copy-div-button custom-button">Reducir filas</button>
+                                <svg viewBox="0 0 576 512">
+                                    <path d="M234.7 42.7L197 56.8c-3 1.1-5 4-5 7.2s2 6.1 5 7.2l37.7 14.1L248.8 123c1.1 3 4 5 7.2 5s6.1-2 7.2-5l14.1-37.7L315 71.2c3-1.1 5-4 5-7.2s-2-6.1-5-7.2L277.3 42.7 263.2 5c-1.1-3-4-5-7.2-5s-6.1 2-7.2 5L234.7 42.7zM46.1 395.4c-18.7 18.7-18.7 49.1 0 67.9l34.6 34.6c18.7 18.7 49.1 18.7 67.9 0L529.9 116.5c18.7-18.7 18.7-49.1 0-67.9L495.3 14.1c-18.7-18.7-49.1-18.7-67.9 0L46.1 395.4zM484.6 82.6l-105 105-23.3-23.3 105-105 23.3 23.3zM7.5 117.2C3 118.9 0 123.2 0 128s3 9.1 7.5 10.8L64 160l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L128 160l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L128 96 106.8 39.5C105.1 35 100.8 32 96 32s-9.1 3-10.8 7.5L64 96 7.5 117.2zm352 256c-4.5 1.7-7.5 6-7.5 10.8s3 9.1 7.5 10.8L416 416l21.2 56.5c1.7 4.5 6 7.5 10.8 7.5s9.1-3 10.8-7.5L480 416l56.5-21.2c4.5-1.7 7.5-6 7.5-10.8s-3-9.1-7.5-10.8L480 352l-21.2-56.5c-1.7-4.5-6-7.5-10.8-7.5s-9.1 3-10.8 7.5L416 352l-56.5 21.2z"/>
+                                </svg>
+                            </div>
+
+                            <!-- Copy data table -->
+                            <div class="container-row">
+                                <button id="copy-data-table" class="div-copy-div-button custom-button">Copiar</button>
+                                <svg viewBox="0 0 448 512">
+                                    <path d="M208 0L332.1 0c12.7 0 24.9 5.1 33.9 14.1l67.9 67.9c9 9 14.1 21.2 14.1 33.9L448 336c0 26.5-21.5 48-48 48l-192 0c-26.5 0-48-21.5-48-48l0-288c0-26.5 21.5-48 48-48zM48 128l80 0 0 64-64 0 0 256 192 0 0-32 64 0 0 48c0 26.5-21.5 48-48 48L48 512c-26.5 0-48-21.5-48-48L0 176c0-26.5 21.5-48 48-48z"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="container-row tools-icon-icons">
+                            <div class="container-column custom-button">
+                                <p>Herramientas</p>
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                <path d="M256 0a256 256 0 1 0 0 512A256 256 0 1 0 256 0zM135 241c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l87 87 87-87c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9L273 345c-9.4 9.4-24.6 9.4-33.9 0L135 241z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <table id="table">
+                    <!-- Table Headers -->
+                    <thead id="table-headers">
+                    </thead>
+
+                    <!-- Table Data -->
+                    <tbody id="table-data" tabindex="0">
+                    </tbody>
+                </table>
+        
+            </div>
+        </div>
+        
+        <footer class="container-row _centrar">
+            <div class="">
+                <p>Contacto: <a class="email" href="mailto:jskolik@gmail.com">jskolik@gmail.com</a></p>
+            </div>
+            <div>
+                <p><a class="email" href="https://perseo1326.github.io/IK-Pedido_Externo/" target="_blank">Historial de versiones</a></p>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <script src="./lib/excelReportsFunctions.js"></script>
+    <script src="./res/app.js"></script>
+    <script src="./res/viewFunctions.js"></script>
+    <script src="./res/reportsFunctions.js"></script>
+
+    <script>
+
+    </script>
+
+</body>
+</html>

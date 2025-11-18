@@ -1,0 +1,151 @@
+
+
+*, html, body {
+    --background: whitesmoke;
+    --font-color: whitesmoke;
+    --first-color: #0059A3;
+    --second-color: #FEDD00;
+    --warning-color: rgba(255, 52, 52, 0.8);
+    --nav-bar-height: calc(100vh * 0.1);
+    --app-data-height: calc(100vh * 0.9);
+    margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+    font-family: "Noto IKEA", "Noto Sans", "Roboto", "Open Sans", system-ui, sans-serif;
+    font-size: 16px;
+}
+
+/* ***** GENERAL STYLES  ***** */
+
+.no-visible {
+    display: none !important;
+}
+
+.container-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.container-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.container-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-centrar-v {
+    align-items: center;
+}
+
+.global-grid-container {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100dvh;
+}
+
+.centrar {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+/* ***** NAVIGATION BAR ***** */
+
+.nav-bar {
+    background-color: var(--first-color);
+    color: var(--font-color);
+    padding: 1.5em;
+}
+
+.logo {
+    display: inline-block;
+    width: auto;
+}
+
+.page-title {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+}
+
+.page-title h1 {
+    font-size: 2em;
+}
+
+.page-title h1 span {
+    display: inline-block;
+    font-size: inherit;
+}
+
+/* ***** NAVIGATION BAR ENDS ***** */
+
+/* ***** FOOTER BAR  ***** */
+
+footer {
+    width: 100%;
+    background-color: var(--first-color);
+    color: var(--font-color);
+    padding: 1em;
+}
+
+a.email {
+    font-weight: bold;
+    text-decoration: none;
+    color: inherit;
+    padding: 0.3em;
+    font-style: italic;
+}
+
+a.email:hover {
+    text-decoration: underline;
+}
+
+/* ***** FOOTER BAR ENDS ***** */
+
+/* ***** LOADING/AUX PANEL ***** */
+
+div.auxiliar-panel {
+    /* position: absolute; */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px);
+    z-index: 5;
+}
+
+/* ***** LOADING/AUX PANEL ENDS ***** */
+
+/* ***** BUTTON STYLES ***** */
+/* display: block; */
+/* font-size: 1rem; */
+
+.custom-button {
+    border: 1px solid var(--first-color);
+    border-radius: 4px;
+	background-color: var(--first-color);
+	color: var(--background);
+	cursor: pointer;
+	margin: 0.3rem auto;
+	padding: 0.3rem 0.6rem;
+	text-align: center;
+}
+
+.custom-button:hover {
+    background-color: var(--second-color);
+    color: var(--first-color);
+    border: 1px solid var(--first-color);
+}
+
+.custom-button-green {
+    background-color: #0d9e4c;
+}
+
+/* ***** BUTTON STYLES END ***** */

@@ -1,0 +1,391 @@
+
+
+.width-70 {
+    width: 70%;
+}
+
+.width-30 {
+    width: 30%;
+}
+
+.width-85 {
+    width: 85%;
+}
+
+.width-100 {
+    width: 100%;
+}
+
+.flex-align-left {
+    justify-content: flex-start;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.margin-auto {
+    margin: auto;
+}
+
+.disabled {
+    background-color: lightgray !important;
+    cursor: not-allowed !important;
+}
+
+.error {
+    border: 1px solid red !important;
+    background-color: lightcoral !important;
+}
+
+/* ***** REPORTS PANEL STYLES ***** */
+
+#reports-panel {
+    height: 100%;
+    width: 100%;
+    justify-content: space-around;
+}
+
+section {
+    margin: 0.2em 0;
+}
+
+.section-div {
+    display: grid;
+    grid-template-columns: 30% 3em auto;
+}
+
+.section-div div {
+    align-items: center;
+}
+
+.section-div div p {
+    padding: 0 0.5em;
+}
+
+.custom-button-report {
+    width: 12em;
+}
+
+.div-reports-panel-go {
+    margin: 1em;
+}
+
+.div-reports-panel-go button {
+    width: 30%;
+    height: 3em;
+}
+
+/* ********************************************************* */
+/* ***** ESTILOS PARA SVG UPDATE ***** */
+/* ********************************************************* */
+
+.container-svg-update {
+    justify-content: center;
+}
+
+.container-svg-update a svg {
+    display: block;
+}
+
+.container-svg-update svg {
+    stroke: var(--first-color);
+    fill: var(--first-color);
+    width: 2.5em;
+}
+
+.container-svg-update:hover svg {
+    stroke: var(--second-color);
+    fill: var(--second-color);
+}
+
+
+/* ********************************************************* */
+
+/* ***** TABLE RESULTS PANEL STYLES ***** */
+
+#table-results-panel {
+    padding: 0em 0.3em 0.3em 0.5em;
+}
+
+div.app-table-results table {
+    border: 2px solid black;
+    border-collapse: collapse;
+    width: 100%;
+    margin: auto;
+}
+
+table thead {
+    background-color: var(--second-color);
+    position: sticky;
+    top: 0;
+    border: 2px solid black;
+}
+
+table thead tr th {
+    padding-top: 0.5em;
+}
+
+table thead tr th span {
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+}
+
+table tbody.reduced-data {
+    background-color:rgb(177, 176, 176) ;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #d6eeee;
+}
+
+table tbody tr:hover {
+    background-color: lightgray;
+}
+
+table tbody td {
+    border: 0.5px solid black;
+    padding: 3px;
+    min-width: 2.5em;
+}
+
+table tbody td.shop-available-stock-higlighter {
+    background-color: rgb(247, 245, 172);
+}
+
+table tbody td.order {
+    background-color: rgb(164, 230, 134);
+}
+
+table tr:hover td.order, td.order:focus {
+    background-color: var(--background);
+}
+
+/* td:nth-child( 8 ), th:nth-child( 8 ) { */
+.stockWeeksHighligter {
+    background-color: #afaeeb;
+    color: aliceblue;
+}
+
+/* ***** TABLE RESULTS PANEL STYLES ENDS ***** */
+
+
+
+
+/* ********************************************************* */
+/* ***** ESTILOS PARA ICONS CONFIG ***** */
+/* ********************************************************* */
+
+/* ***** TOOLS BUTTON  ***** */
+
+.div-tools-div {
+    position: fixed;
+    z-index: 2;
+    bottom: 4em;
+    right: 5em;
+}
+
+.tools-icon {
+    position: absolute;
+    bottom: 1em;
+    right: 1em;
+}
+
+.tools-icon-icons {
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.tools-icon-icons:hover {
+    background-color: var(--first-color);
+    border-radius: 5px;
+}
+
+.tools-icon-icons:hover div.custom-button {
+    display: block;
+}
+
+div.custom-button {
+    margin-right: 0.3em;
+    display: none;
+}
+
+.tools-icon svg {
+    margin: 0.3em;
+    display: block;
+    width: 2.5em;
+    height: 2.5em;
+    fill: var(--first-color);
+}
+
+.tools-icon-icons:hover svg {
+    fill: var(--second-color);
+    transform: rotate(180deg);
+}
+
+/* ********************************************************* */
+/* ESTILOS PARA HERRAMIENTAS -> BOTONES */
+
+.tools-buttons {
+    display: none;
+}
+
+.tools-icon:hover .tools-buttons{
+    display: flex;
+}
+
+.tools-buttons div {
+    margin-bottom: 1em;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.tools-buttons div button {
+    margin: 0.3rem 0;
+}
+
+.tools-buttons div:hover button {
+    background-color: var(--second-color);
+    color: var(--first-color);
+}
+
+.tools-buttons div svg {
+    width: 2em;
+    height: 2em;
+}
+
+.tools-buttons div:hover svg {
+    fill: var(--second-color);
+}
+
+
+/* ********************************************************* */
+/* ESTILOS PANEL CONFIGURACION */
+
+.config-panel {
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    /* min-width: 70%; */
+    background-color: #e9dbf0;
+    min-height: calc(100vh * 0.5);
+    border: 2px solid gray;
+    box-shadow: 0.5em 0.5em 0.6em gray;
+}
+
+.config-title h3 {
+    padding: 0.3em;
+    font-size: 2em;
+    text-align: center;
+    background-color: var(--first-color);
+    color: var(--font-color);
+}
+
+.config-nav-buttons > ul, li {
+    all: unset;
+}
+
+.config-card {
+    padding: 0.5em;
+    width: 100%;
+}
+
+.card-params {
+    height: 100%;
+    padding: 0.3em;
+}
+
+.card-params fieldset {
+    height: 100%;
+    padding: 0.2em;
+    justify-content: space-around;
+}
+
+.card-params fieldset legend {
+    padding: 0.3em;
+    font-weight: bold;
+    font-size: 1.2em;
+    border-bottom: 1px solid var(--first-color);
+    color: var(--first-color);
+}
+
+.param-item {
+    padding-bottom: 0.2em;
+    justify-content: space-between;
+}
+
+.param-item label {
+    display: inline-block;
+    padding: 0.2em 0;
+}
+
+.param-item input {
+    all: unset;
+    padding: 0.2em;
+    display: inline-block;
+    width: 4em;
+    background-color: var(--background);
+    text-align: center;
+    border: 0.5px solid var(--first-color);
+    border-radius: 0.5px;
+}
+
+.param-item input:hover {
+    background-color: lightgray;
+}
+
+.param-item input:focus {
+    background-color: rgb(236, 240, 185);
+}
+
+.param-item input.text {
+    display: block;
+    width: auto;
+    text-align: left;
+}
+
+.config-confirm-buttons {
+    justify-content: flex-end;
+    margin-bottom: 0.5em;
+}
+
+
+/* ********************************************************* */
+/* ***** ESTILOS PARA EL FOOTER ***** */
+/* ********************************************************* */
+
+footer {
+    justify-content:space-around;
+}
+
+footer > div {
+    padding: 0.3em;
+}
+
+
+/* ********************************************************* */
+/* ***** ESTILOS PARA EL LOADER ***** */
+/* ********************************************************* */
+.loader {
+    border: 1em solid var(--first-color);
+    border-radius: 50%;
+    border-top: 1em solid var(--second-color);
+    width: 7.5em;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    /* Safari */
+    animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+
